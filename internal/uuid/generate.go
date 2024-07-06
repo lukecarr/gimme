@@ -2,13 +2,6 @@ package uuid
 
 import "github.com/google/uuid"
 
-var uuidGenerators = map[string]func() (uuid.UUID, error){
-	"v1": uuid.NewUUID,
-	"v4": uuid.NewRandom,
-	"v6": uuid.NewV6,
-	"v7": uuid.NewV7,
-}
-
 func generateUuids(generator func() (uuid.UUID, error), n int) ([]string, error) {
 	uuids := make([]string, n)
 	errChan := make(chan error, n)

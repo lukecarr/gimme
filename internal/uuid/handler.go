@@ -7,11 +7,9 @@ import (
 )
 
 func Handler(w http.ResponseWriter, r *http.Request) {
-	version := r.PathValue("version")
-
-	generator, ok := uuidGenerators[version]
-	if !ok {
-		http.Error(w, "Invalid UUID version parameter!", http.StatusBadRequest)
+	version, generator, err := parseGenerator(r)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
