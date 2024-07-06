@@ -1,0 +1,10 @@
+image:
+  file: .gitpod/Dockerfile
+  context: .gitpod/
+
+tasks:
+  - name: gimme
+    init: |
+      go mod download
+    command: |
+      go run main.go
