@@ -1,21 +1,15 @@
 package main
 
 import (
-	"fmt"
+	"github.com/lukecarr/gimme/internal/uuid"
 	"log"
 	"net/http"
 	"os"
 	"strings"
 )
 
-func hello(w http.ResponseWriter, _ *http.Request) {
-	if _, err := fmt.Fprintf(w, "Hello, World!\n"); err != nil {
-		log.Fatalf("Failed to write to http.ResponseWriter: %s\n", err)
-	}
-}
-
 func main() {
-	http.HandleFunc("/", hello)
+	http.HandleFunc("/uuid/{version}", uuid.Handler)
 
 	addr := os.Getenv("ADDR")
 	if strings.TrimSpace(addr) == "" {
