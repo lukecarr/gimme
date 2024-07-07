@@ -4,15 +4,31 @@
 
 Gimme is a minimal HTTP API for fetching various random values (e.g. UUIDs, names, colours).
 
-## Requirements
+## Installation
 
-Gimme has no requirements: simply grab a binary for your respective operating system/architecture from the [GitHub releases page](https://github.com/lukecarr/gimme/releases).
+### Requirements
 
-### Building from source/development
+Gimme has no requirements!
 
-If you'd like to develop locally or wish to build from source, you'll need an install of [Go](https://go.dev) (check the [`go.mod`](go.mod) file for the version we're using).
+### Binaries
 
-Once you have Go installed, you can then run `go run main.go` to launch Gimme directly, or run `go build` (which will produce a `gimme` executable in the working directory).
+Simply grab a binary for your respective operating system/architecture from the [GitHub releases page](https://github.com/lukecarr/gimme/releases).
+
+Then, all you need to do is run `./gimme`, and the server will be running on `http://127.0.0.1:5000` (see [Configuration](#configuration) for details on changing the address).
+
+### Docker image
+
+Gimme can also be deployed from its official Docker image. The Docker image is automatically built using GitHub Actions and pushed to this repository's container registry.
+
+```shell
+docker run -d p 5000:5000 ghcr.io/lukecarr/gimme:latest
+```
+
+## Configuration
+
+Gimme uses environment variables to configure the server's behaviour:
+
+* `ADDR`: used to configure the address that Gimme will bind to. Defaults to `:5000` (port 5000 on all addresses).
 
 ## API reference
 
@@ -27,6 +43,12 @@ Supported versions are: `v1`, `v4`, `v6`, and `v7`.
 By default, only one UUID is generated. This behaviour can be configured by providing a `?n=123` query parameter as part of your request. Supported values for `n` are integers between 1 and 1000.
 
 The response structure (irrespective of `n`) is always an array of strings.
+
+## Building from source/development
+
+If you'd like to develop locally or wish to build from source, you'll need an install of [Go](https://go.dev) (check the [`go.mod`](go.mod) file for the version we're using).
+
+Once you have Go installed, you can then run `go run main.go` to launch Gimme directly, or run `go build` (which will produce a `gimme` executable in the working directory).
 
 ## CS50x final project
 
