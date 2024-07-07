@@ -1,0 +1,8 @@
+/.gitpod/
+.dockerignore
+.gitignore
+.gitpod.yml
+Dockerfile
+gimme
+LICENSE
+README.md
