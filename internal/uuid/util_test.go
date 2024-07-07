@@ -13,7 +13,7 @@ func TestParseGenerator(t *testing.T) {
 		expectedVersion := "v5"
 
 		if version != expectedVersion {
-			t.Errorf("Expected version %s, got %s", expectedVersion, version)
+			t.Errorf("Expected version %s, got %s\n", expectedVersion, version)
 		}
 	})
 
@@ -24,7 +24,7 @@ func TestParseGenerator(t *testing.T) {
 		expectedVersion := "v4"
 
 		if version != expectedVersion {
-			t.Errorf("Expected version %s, got %s", expectedVersion, version)
+			t.Errorf("Expected version %s, got %s\n", expectedVersion, version)
 		}
 	})
 
@@ -34,7 +34,7 @@ func TestParseGenerator(t *testing.T) {
 		_, _, err := parseGenerator(request)
 
 		if err == nil {
-			t.Errorf("Expected error, got nil")
+			t.Errorf("Expected error, got nil\n")
 		}
 	})
 }
@@ -47,7 +47,7 @@ func TestParseN(t *testing.T) {
 		expected := 5
 
 		if parsed != expected {
-			t.Errorf("Expected %d, got %d", expected, parsed)
+			t.Errorf("Expected %d, got %d\n", expected, parsed)
 		}
 	})
 
@@ -57,7 +57,7 @@ func TestParseN(t *testing.T) {
 		_, err := parseN(request)
 
 		if err == nil {
-			t.Errorf("Expected error, got nil")
+			t.Errorf("Expected error, got nil\n")
 		}
 	})
 
@@ -67,7 +67,7 @@ func TestParseN(t *testing.T) {
 		_, err := parseN(request)
 
 		if err == nil {
-			t.Errorf("Expected error, got nil")
+			t.Errorf("Expected error, got nil\n")
 		}
 	})
 
@@ -78,7 +78,7 @@ func TestParseN(t *testing.T) {
 		expected := 1
 
 		if parsed != expected {
-			t.Errorf("Expected %d, got %d", expected, parsed)
+			t.Errorf("Expected %d, got %d\n", expected, parsed)
 		}
 	})
 }
