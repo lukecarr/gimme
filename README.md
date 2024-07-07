@@ -52,7 +52,7 @@ Once you have Go installed, you can then run `go run main.go` to launch Gimme di
 
 ## CS50x final project
 
-This repository also serves as my entry for the final project of CS50x.
+This repository also serves as my entry for the final project of [CS50x](https://cs50.harvard.edu/x/2024/).
 
 #### Video demo
 
