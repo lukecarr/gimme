@@ -54,7 +54,14 @@ Once you have Go installed, you can then run `go run main.go` to launch Gimme di
 
 This repository also serves as my entry for the final project of [CS50x](https://cs50.harvard.edu/x/2024/).
 
-#### Video demo
+### Video demo
 
 The below video is a short demo I created to highlight the functionality of this repository. This video is a requirement for the CS50x final project submission.
 
+### Project structure
+
+The main entrypoint for the application is the `main.go` file. In this file, the `main` function is responsible for registering the different API route handlers and then launching the HTTP server.
+
+The different "modules" (e.g. UUID, colours, names) are split into separate directories within the `internal/` directory.
+
+In the UUID generation logic (`internal/uuid/generate.go`), I use concurrency (channels and goroutines) to simultaneously generate UUIDs within the route handler function. This is to improve performance when the `n` query parameter provided by the requester is large.
