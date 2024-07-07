@@ -11,7 +11,7 @@ import (
 // main is the entrypoint for the program
 func main() {
 	// Register UUID route
-	http.HandleFunc("/uuid/{version}", uuid.Handler)
+	http.HandleFunc("/uuid", uuid.Handler)
 
 	// Attempt to parse address from environment variable
 	addr := os.Getenv("ADDR")

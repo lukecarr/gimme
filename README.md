@@ -34,13 +34,13 @@ Gimme uses environment variables to configure the server's behaviour:
 
 Below you can find reference documentation for the different routes and functionality that Gimme provides.
 
-### GET `/uuid/{version}`
+### GET `/uuid`
 
-Generates a UUID string for the provided version.
+Generates a UUID string (or multiple UUID strings).
 
-Supported versions are: `v1`, `v4`, `v6`, and `v7`.
+You can configure the version of UUID to generate (defaults to `v4`) by providing the `?v=` query parameter. Supported versions are: `v1`, `v4`, `v6`, and `v7`.
 
-By default, only one UUID is generated. This behaviour can be configured by providing a `?n=123` query parameter as part of your request. Supported values for `n` are integers between 1 and 1000.
+By default, only one UUID is generated. This behaviour can be configured by specifying the `?n` query parameter as part of your request. Supported values for `n` are integers between 1 and 1000.
 
 The response structure (irrespective of `n`) is always an array of strings.
 
