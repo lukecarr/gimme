@@ -7,6 +7,7 @@ import (
 	"strconv"
 )
 
+// uuidGenerators is a map of UUID spec versions to functions that produce UUIDs (and errors)
 var uuidGenerators = map[string]func() (uuid.UUID, error){
 	"v1": uuid.NewUUID,
 	"v4": uuid.NewRandom,
@@ -14,6 +15,8 @@ var uuidGenerators = map[string]func() (uuid.UUID, error){
 	"v7": uuid.NewV7,
 }
 
+// parseGenerator attempts to extract a `version` from the request URL and then find the corresponding UUID
+// generator function from the `uuidGenerators` map
 func parseGenerator(r *http.Request) (string, func() (uuid.UUID, error), error) {
 	version := r.PathValue("version")
 
@@ -25,6 +28,7 @@ func parseGenerator(r *http.Request) (string, func() (uuid.UUID, error), error) 
 	return version, generator, nil
 }
 
+// parseN attempts to extract an integer between 1 and 1000 from the request's query parameters
 func parseN(r *http.Request) (int, error) {
 	n := 1
 
